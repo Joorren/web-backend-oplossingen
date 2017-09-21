@@ -1,9 +1,5 @@
 <?php
 
-//Maak een HTML-document met een PHP code-block
-//Maak een PHP-script dat aan de hand van een getal ( tussen 1 en 7 ) de bijhorende dag afprint in kleine letters (geen hoofdletters!)
-//Maak gebruik van een switch en probeer alles te herschrijven i.p.v. te kopiëren.
-
 $number = 1;
 $day = "";
 
