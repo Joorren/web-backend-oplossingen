@@ -10,3 +10,4 @@ $numbers = array(1,2,3,4,5);
 
 echo $numbers[0]*$numbers[1]*$numbers[2]*$numbers[3]*$numbers[4];
 
+
