@@ -1,7 +1,4 @@
 <?php
-//Maak een PHP-script dat kan bepalen of de variabele 'jaartal' al dan niet een schrikkeljaar is
-//Een jaar is een schrikkeljaar als het deelbaar is door 4.
-//Een jaar is géén schrikkeljaar als het deelbaar is door 100, TENZIJ het wel deelbaar is door 400.
 
 $year = 1996;
 $leapYear;
