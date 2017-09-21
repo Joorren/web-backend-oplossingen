@@ -1,35 +1,32 @@
 <?php
 
 $number = 1;
-$day;
+$day = "Not a valid day";
 
-switch($number) {
-    case 1:
+if($number === 1) {
     $day = "monday";
-    break;
-    case 2:
-    $day = "tuesday";
-    break;
-    case 3:
-    $day = "wednesday";
-    break;
-    case 4:
-    $day = "thursday";
-    break;
-    case 5:
-    $day = "friday";
-    break;
-    case 6:
-    $day = "saturday";
-    break;
-    case 7:
-    $day = "sunday";
-    break;
-    default:
-    $day = "Not a valid date";
-    break;
 }
+else if($number === 2) {
+     $day = "tuesday";
+ }
+else if($number === 3) {
+     $day = "wednesday";
+ }
+else if($number === 4) {
+     $day = "thursday";
+ }
+else if($number === 5) {
+     $day = "friday";
+ }
+else if($number === 7) {
+     $day = "saturday";
+ }
+else if($number === 7) {
+     $day = "sunday";
+ }
 
 echo $day;
 echo "<br />";
 echo strtoupper($day);
+// Every letter but "a"
+// Every letter but the last "a"
