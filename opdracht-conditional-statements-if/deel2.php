@@ -1,6 +1,6 @@
 <?php
 
-$number = 1;
+$number = 6;
 $day = "Not a valid day";
 
 if($number === 1) {
@@ -18,7 +18,7 @@ if($number === 4) {
 if($number === 5) {
      $day = "friday";
  }
-if($number === 7) {
+if($number === 6) {
      $day = "saturday";
  }
 if($number === 7) {
@@ -27,6 +27,15 @@ if($number === 7) {
 
 echo $day;
 echo "<br />";
-echo strtoupper($day);
-// Every letter but "a"
-// Every letter but the last "a"
+
+$day = strtoupper($day);
+echo $day;
+echo "<br />";
+
+$day2 = str_replace("A","a",$day);
+echo $day2;
+echo "<br />";
+
+$lastAPos = strrpos( $day, 'A' );
+$day3 = substr_replace( $day, 'a', $lastAPos, 1 );
+echo $day3;
