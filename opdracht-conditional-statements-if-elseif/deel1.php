@@ -1,7 +1,4 @@
 <?php
-//Maak een getal met een waarde tussen 1-100
-//Zorg ervoor dat het script kan zeggen tussen welke tientallen het getal ligt, bv 'Het getal ligt tussen 20 en 30'.
-//Zorg er vervolgens voor dat de boodschap omgekeerd afgedrukt wordt, bv '03 ne 02 nessut tgil lateg teH'.
 
 $number = 49;
 $text = "The number is between ";
