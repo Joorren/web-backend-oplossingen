@@ -19,7 +19,7 @@ function interestCalculator($money, $time, $percentage) {
     }
     else {
         echo "After " . $GLOBALS['time'] . " years with a percentage of " . $percentage .
-            ", you still have " . $money . ".";
+            ", you will have " . $money . ".";
     }
 }
 
