@@ -1,5 +1,4 @@
 <?php
-
 $date = mktime(22, 35, 25, 1, 21, 1904);
 ?>
 
@@ -9,6 +8,6 @@ $date = mktime(22, 35, 25, 1, 21, 1904);
     <title>Hello World</title>
 </head>
 <body>
-    <?= date("H\:i\:s\, d F Y",$date); ?>
+    <?= date("d F Y, h\:i\:s a ",$date); ?>
 </body>
 </html>
