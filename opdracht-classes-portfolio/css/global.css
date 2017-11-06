@@ -1,0 +1,90 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "open sans", sans-serif;
+}
+#container {
+    background: #2B3536;
+    min-height: 100vh;
+}
+header {
+    height: 10vh;
+    background: #eeeeee;
+    font-size: 8vh;
+    box-shadow: 0 0 20px black;
+}
+#logo {
+    color: #2B3536;
+    display: inline-block;
+    float: left;
+}
+menu {
+    display: inline-block;
+    float: right;
+    margin: 0;
+}
+menu:after, .content:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+menu li {
+    float: left;
+    margin: 0 2vw;
+
+}
+menu li a{
+    color: #2B3536;
+    text-decoration: none;
+}
+.content {
+    margin-top: -1vh;
+}
+.content-left, .content-right {
+    display: inline-block;
+    padding: 5vh 2vw;
+}
+.content-left {
+    width: 60vw;
+    float: left;
+    background: #eeeeee;
+    min-height: 70.8vh;
+}
+article {
+    border-left: 0.2vw solid #2B3536;
+    padding-left: 1vw;
+}
+article h1 {
+    text-transform: uppercase;
+    color: #2B3536;
+    margin-bottom: 0;
+}
+article .date, article .author {
+    margin: 0;
+    font-size: .8em;
+    font-style: italic;
+}
+.content-right {
+    width: 30vw;
+    float: right;
+}
+.content-right img {
+    border-radius: 50%;
+}
+.content-right h1 {
+    color: #eeeeee;
+}
+#footer {
+    min-height: 10vh;
+    background: #1A1A1A;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 8vh;
+
+}

@@ -1,0 +1,76 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daily PHP</title>
+    <style>
+        body {
+            margin: 0;
+            width: 0;
+            font-family: sans-serif;
+        }
+        header {
+            width: 98vw;
+            background: #333333;
+            color: white;
+            padding: 1vh 1vw;
+        }
+        #logo {
+            font-size: 2vw;
+            display: inline;
+        }
+        ul {
+            list-style: none;
+            float: right;
+            display: inline;
+            margin: 0;
+            padding: 0;
+        }
+        ul:after, ul:last-child:after, #container:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        li {
+            float: left;
+            margin: 1vw;
+        }
+        li a, li a:hover, li a:active, li a:visited {
+            color: inherit;
+            text-decoration: inherit;
+        }
+        #container {
+            width: 70vw;
+            margin: 0 15vw;
+        }
+        article {
+            float: left;
+            width: 20vw;
+            margin-left: 5vw;
+            background: #ddd;
+        }
+        article:first-of-type {
+            margin-left: 0;
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 98vw;
+            padding: 1vh 1vw;
+            background: aqua;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div id="logo">Daily <strong>PHP</strong></div>
+    <ul>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Our Redaction</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</header>
