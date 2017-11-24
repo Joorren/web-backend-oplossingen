@@ -27,17 +27,19 @@ WHERE bi.naam LIKE 'du%' AND br.brnaam LIKE '%a%'");
     <body>
     <table>
         <thead>
-        <th>#</th>
-        <th>biernr (PK)</th>
-        <th>naam</th>
-        <th>brouwernr</th>
-        <th>soortnr</th>
-        <th>alcohol</th>
-        <th>brnaam</th>
-        <th>adres</th>
-        <th>postcode</th>
-        <th>gemeente</th>
-        <th>omzet</th>
+        <tr>
+            <th>#</th>
+            <th>biernr (PK)</th>
+            <th>naam</th>
+            <th>brouwernr</th>
+            <th>soortnr</th>
+            <th>alcohol</th>
+            <th>brnaam</th>
+            <th>adres</th>
+            <th>postcode</th>
+            <th>gemeente</th>
+            <th>omzet</th>
+        </tr>
         </thead>
         <tbody>
 <?php
