@@ -57,7 +57,8 @@ elseif (isset($_POST['submit'])) {
     VALUES (NULL, '$email', '$hashed_password', '$today');
     ");
 
-    $_COOKIE['login'] = $email.','.$hashed_password;
+    setcookie("login",$email.','.$hashed_password,time()+60*60*24*30);
+//    $_COOKIE['login'] = $email.','.$hashed_password;
 
     header('location:dashboard.php');
     exit();
