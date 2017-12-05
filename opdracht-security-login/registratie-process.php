@@ -57,7 +57,9 @@ elseif (isset($_POST['submit'])) {
     VALUES (NULL, '$email', '$hashed_password', '$today');
     ");
 
-    //header('location:dashboard.php');
+    $_COOKIE['login'] = $email.','.$hashed_password;
+
+    header('location:dashboard.php');
     exit();
 }
 
