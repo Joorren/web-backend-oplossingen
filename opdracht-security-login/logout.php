@@ -1,7 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Joren
- * Date: 5/12/2017
- * Time: 23:51
- */
+
+session_start();
+
+
+$_SESSION['account']['logout']      = "Successvol uitgelogd.";
+setcookie("login","",time()-100);
+header('location: login-form.php');
