@@ -2,6 +2,11 @@
 
 session_start();
 
+if (isset($_COOKIE['login']) && strlen($_COOKIE['login']) > 0) {
+    header('location: dashboard.php');
+    exit();
+}
+
 if ( isset( $_POST[ 'generate' ] ) )
 {
     $generatedPassword	=	generatePassword(16);
@@ -73,3 +78,7 @@ function generatePassword($length) {
     }
     return $randomPassword;
 }
+
+
+header( 'location: registratie-form.php');
+exit();

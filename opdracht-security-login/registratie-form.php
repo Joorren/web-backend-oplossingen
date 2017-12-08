@@ -8,7 +8,7 @@ $password = (isset($_SESSION[ 'registration' ][ 'password' ]))?$_SESSION[ 'regis
 ?>
 <!DOCTYPE html>
 <html>
-<title>Login Form</title>
+<title>Registratie Form</title>
 </html>
 <body>
 <h1>Registreren</h1>
