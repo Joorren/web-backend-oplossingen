@@ -12,7 +12,7 @@ $accountInfo = explode(",", $_COOKIE['login']);
 
 
 try {
-    $db = new pdo('mysql:host=localhost;dbname=opdracht-security-login','root','');
+    $db = new pdo('mysql:host=localhost;dbname=opdracht-file-upload','root','');
 }
 
 catch (Exception $e) {
@@ -30,10 +30,13 @@ if (!($row['password'] === $accountInfo[1])) {
     exit();
 }
 
-var_dump($accountInfo);
-
 ?>
 
+<a href="dashboard.php">Terug naar dashboard</a> | Ingelogd als <?= $accountInfo[0];?> | <a href="logout.php">Uitloggen</a>
+<br />
 
-
-<a href="logout.php">Uitloggen</a>
+<h1>Dashboard</h1>
+<ul>
+    <li>Artikels</li>
+    <a href="gegevens-wijzigen-form.php"><li>Gegevens wijzigen</li></a>
+</ul>
