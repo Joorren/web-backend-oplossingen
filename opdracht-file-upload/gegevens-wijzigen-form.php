@@ -46,7 +46,7 @@ else {
 
 <form action="gegevens-bewerken.php" method="post" enctype="multipart/form-data">
 
-    <input type="file" name="file" /><br /><br />
+    <input type="file" name="profilePicture" /><br /><br />
     <label for="email">Email</label><br />
     <input type="email" id="email" placeholder="email" name="email" value="<?=$accountInfo[0];?>" /><br /><br />
     <input type="submit" id="submit" name="submit" value="Gegevens Wijzigen" />
