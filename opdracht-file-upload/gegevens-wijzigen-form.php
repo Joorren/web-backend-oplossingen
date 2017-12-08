@@ -30,7 +30,12 @@ if (!($row['password'] === $accountInfo[1])) {
     exit();
 }
 
-$profilePicture = $row['profile_picture'];
+if ($row['profile_picture'] === "") {
+    $profilePicture = "icon.png";
+}
+else {
+    $profilePicture = $row['profile_picture'];
+}
 
 ?>
 
@@ -39,7 +44,7 @@ $profilePicture = $row['profile_picture'];
 
 <img src="img/<?=$profilePicture;?>" alt="<?=$accountInfo[0];?>" height="200" width="200"/><br /><br />
 
-<form action="upload_file.php" method="post" enctype="multipart/form-data">
+<form action="gegevens-bewerken.php" method="post" enctype="multipart/form-data">
 
     <input type="file" name="file" /><br /><br />
     <label for="email">Email</label><br />
