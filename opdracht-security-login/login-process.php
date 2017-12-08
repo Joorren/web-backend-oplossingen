@@ -60,5 +60,5 @@ if (isset($_POST['submit'])) {
 }
 
 
-header( 'location: registratie-form.php');
+header( 'location: login-form.php');
 exit();
