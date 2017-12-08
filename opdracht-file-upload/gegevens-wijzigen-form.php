@@ -37,4 +37,4 @@ $profilePicture = $row['profile_picture'];
 <a href="dashboard.php">Terug naar dashboard</a> | Ingelogd als <?= $accountInfo[0];?> | <a href="logout.php">Uitloggen</a>
 <br /><br />
 
-<img src="img/<?=$profilePicture;?>" alt="<?=$accountInfo[0];?>" />
+<img src="img/<?=$profilePicture;?>" alt="<?=$accountInfo[0];?>" height="200" width="200"/>
