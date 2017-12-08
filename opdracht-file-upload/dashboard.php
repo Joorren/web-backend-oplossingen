@@ -38,5 +38,5 @@ if (!($row['password'] === $accountInfo[1])) {
 <h1>Dashboard</h1>
 <ul>
     <li>Artikels</li>
-    <a href="gegevens-wijzigen-form.php"><li>Gegevens wijzigen</li></a>
+    <li><a href="gegevens-wijzigen-form.php">Gegevens wijzigen</a></li>
 </ul>
