@@ -37,7 +37,7 @@ elseif (isset($_POST['submit'])) {
     }
 
     try {
-        $db = new pdo('mysql:host=localhost;dbname=opdracht-security-login','root','');
+        $db = new pdo('mysql:host=localhost;dbname=opdracht-file-upload','root','');
     }
 
     catch (Exception $e) {
