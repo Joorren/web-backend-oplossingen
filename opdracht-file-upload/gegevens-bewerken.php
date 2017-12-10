@@ -2,35 +2,46 @@
 
 session_start();
 
-if (isset($_FILES['profilePicture'])) {
+$accountInfo = explode(",", $_COOKIE['login']);
+
+$email = $_POST['email'];
+$oldEmail = $accountInfo[0];
+
+$newProfilePicture = "";
+$newEmail = "";
+
+if (isset($_FILES['profilePicture']) && $_FILES['profilePicture']['error'] !== 4) {
 
     $dest = "img/";
+    $date = date("YmdHis");
     $newFile = $_FILES['profilePicture'];
+    $fullDir = $dest . $date . "_" . $newFile['name'];
+    $allowedExtensions = ['image/jpeg', 'image/png', 'image/gif'];
 
-    if ($newFile["error"] !== 0) {
+    if ($newFile['error'] !== 0) {
         $errMessage = "";
         switch ($newFile['error']) {
             case 1:
             case 2:
-                $errMessage="Bestand is te groot";
+                $errMessage = "Bestand is te groot";
                 break;
             case 3:
-                $errMessage="Bestand is recentelijk geupload";
+                $errMessage = "Bestand is recentelijk geupload";
                 break;
             case 4:
-                $errMessage="Geen bestand toegevoegd";
+                $errMessage = "Geen bestand toegevoegd";
                 break;
             case 6:
-                $errMessage="Geen tijdelijke map gevonden";
+                $errMessage = "Geen tijdelijke map gevonden";
                 break;
             case 7:
-                $errMessage="Mislukt om bestand te schrijven";
+                $errMessage = "Mislukt om bestand te schrijven";
                 break;
             case 8:
-                $errMessage="Php extentie stopte de upload";
+                $errMessage = "Php extentie stopte de upload";
                 break;
             default:
-                $errMessage="Error";
+                $errMessage = "Error";
                 break;
         }
 
@@ -43,30 +54,42 @@ if (isset($_FILES['profilePicture'])) {
         header('location: gegevens-wijzigen-form.php');
         exit();
     }
+    if (array_search($newFile['type'], $allowedExtensions) < 0) {
+        $_SESSION['upload']['error'] = "Bestandstype niet toegestaan";
+        header('location: gegevens-wijzigen-form.php');
+        exit();
+    }
+    while (file_exists($fullDir)) {
+        $fullDir = $dest . date("YmdHis") . $newFile['name'];
+    }
 
-//    switch (substr($_FILES['profilePicture'],-4)) {
-//        case ".png":
-//        case ".jpg":
-//        case ".gif":
-//            //upload file
-//            move_uploaded_file($_FILES['profilePicture'], $dest.date("YmdHis")."_".$_FILES['profilePicture']);
-//            break;
-//        default:
-//            //error
-//
-//            break;
-//    }
+    move_uploaded_file($newFile['tmp_name'], $fullDir);
+
+    $newProfilePicture = $newFile['name'];
 }
 
-//$file_parts = pathinfo($filename);
-//$file_parts['extension'];
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $_SESSION['upload']['error']      = "Email adres is niet correct.";
+    header('location: gegevens-wijzigen-form.php');
+    exit();
+}
+
+$newEmail = $email;
 
 
-//["name"] ["type"] ["tmp_name"] ["error"] ["size"]
+try {
+    $db = new pdo('mysql:host=localhost;dbname=opdracht-file-upload','root','');
+}
 
-// ["type"]=> string(10) "image/jpeg"
-// ["type"]=> string(9) "image/png"
-// ["type"]=> string(9) "image/gif"
+catch (Exception $e) {
+    echo $e->getMessage();
+}
 
+//$sql = "UPDATE `users` SET `email` = '$newEmail' `profile_picture` = '$newProfilePicture' WHERE `email` = '$oldEmail'";
+$sql = "UPDATE `users` SET `email` = '$newEmail' WHERE `email` = $oldEmail;";
+$db = $db->prepare($sql);
+$db->execute();
 
-// $dest.date("YmdHis")
+$_SESSION['upload']['error']    = "Successfully changed for $newEmail";
+header('location: gegevens-wijzigen-form.php');
+exit();
