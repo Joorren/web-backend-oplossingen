@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
         header('location: login-form.php');
         exit();
     }
-    if (!isset($_POST['password']) || $_POST['password'] <= 0) {
+    if (!isset($_POST['password']) || strlen($_POST['password']) <= 0) {
         $_SESSION['account']['error']      = "Wachtwoord is niet ingevuld.";
         header('location: login-form.php');
         exit();
