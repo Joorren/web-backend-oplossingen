@@ -10,6 +10,8 @@ if (!isset($_COOKIE['login']) || strlen($_COOKIE['login']) <= 0) {
 
 $accountInfo = explode(",", $_COOKIE['login']);
 
+$uploadError = (isset($_SESSION['upload']['error']) && $_SESSION['upload']['error'])? $_SESSION['upload']['error']:"";
+
 
 try {
     $db = new pdo('mysql:host=localhost;dbname=opdracht-file-upload','root','');
@@ -46,6 +48,7 @@ else {
 
 <form action="gegevens-bewerken.php" method="post" enctype="multipart/form-data">
 
+    <?=$uploadError; ?><br />
     <input type="file" name="profilePicture" /><br /><br />
     <label for="email">Email</label><br />
     <input type="email" id="email" placeholder="email" name="email" value="<?=$accountInfo[0];?>" /><br /><br />
