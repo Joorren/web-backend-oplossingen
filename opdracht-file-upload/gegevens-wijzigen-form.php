@@ -33,7 +33,7 @@ if (!($row['password'] === $accountInfo[1])) {
 }
 
 if ($row['profile_picture'] === "") {
-    $profilePicture = "icon.png";
+    $profilePicture = "img/icon.png";
 }
 else {
     $profilePicture = $row['profile_picture'];
@@ -44,7 +44,7 @@ else {
 <a href="dashboard.php">Terug naar dashboard</a> | Ingelogd als <?= $accountInfo[0];?> | <a href="logout.php">Uitloggen</a>
 <br /><br />
 
-<img src="img/<?=$profilePicture;?>" alt="<?=$accountInfo[0];?>" height="200" width="200"/><br /><br />
+<img src="<?=$profilePicture;?>" alt="<?=$accountInfo[0];?>" height="200" width="200"/><br /><br />
 
 <form action="gegevens-bewerken.php" method="post" enctype="multipart/form-data">
 

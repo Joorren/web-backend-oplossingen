@@ -74,8 +74,6 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit();
 }
 
-$newEmail = $email;
-
 
 try {
     $db = new pdo('mysql:host=localhost;dbname=opdracht-file-upload','root','');
@@ -86,10 +84,17 @@ catch (Exception $e) {
 }
 
 //$sql = "UPDATE `users` SET `email` = '$newEmail' `profile_picture` = '$newProfilePicture' WHERE `email` = '$oldEmail'";
-$sql = "UPDATE `users` SET `email` = '$newEmail' WHERE `email` = $oldEmail;";
-$db = $db->prepare($sql);
-$db->execute();
+$db->query ("
+UPDATE users
+SET `opdracht-file-upload`.users.email = '$newEmail',
+`opdracht-file-upload`.users.profile_picture = '$fullDir'
+WHERE `opdracht-file-upload`.users.email = '$oldEmail'
+");
 
-$_SESSION['upload']['error']    = "Successfully changed for $newEmail";
+setcookie("login",$newEmail.','.$accountInfo[1],time()+60*60*24*30);
+
+
+$_SESSION['upload']['error']      = "Gegevens succesvol aangepast.";
 header('location: gegevens-wijzigen-form.php');
 exit();
+
