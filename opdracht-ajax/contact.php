@@ -11,6 +11,7 @@ function logError($error) {
 $email = (isset($_POST['email']))? $_POST['email'] : '';
 $message = (isset($_POST['message']))? $_POST['message'] : '';
 $copy = (isset($_POST['copy']))? $_POST['copy'] : '';
+$date = date('Y-m-d H:i:s');
 
 if (isset($_POST['submit'])) {
     if (strlen($email) === 0) {
@@ -37,7 +38,7 @@ catch (Exception $e) {
     echo $e->getMessage();
 }
 
-$sql = "INSERT INTO `opdracht-ajax`.contact_messages (id, email, message, time_sent) VALUES (0,'$email', '$message', date('Y-m-d H:i:s'))";
+$sql = "INSERT INTO `opdracht-ajax`.contact_messages (id, email, message, time_sent) VALUES (0,'$email', '$message', '$date')";
 $db->query($sql);
 
 echo "ok";
