@@ -29,16 +29,18 @@ if (isset($_POST['submit'])) {
 }
 
 $admin = 'Jorendandois@hotmail.com';
+$title= "[TEST] Email";
+$headers = 'From: webmaster@example.com' . "\r\n" .
+    'Reply-To: webmaster@example.com' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
 
 try {
     $db = new pdo('mysql:host=localhost;dbname=opdracht-file-upload','root','');
 }
-
 catch (Exception $e) {
     echo $e->getMessage();
 }
-
 $sql = "INSERT INTO `opdracht-ajax`.contact_messages (id, email, message, time_sent) VALUES (0,'$email', '$message', '$date')";
 $db->query($sql);
 
-echo "ok";
+mail($admin,$title,$message,$headers);
