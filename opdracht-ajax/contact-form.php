@@ -4,7 +4,7 @@
 
 <h1>Contacteer ons</h1>
 
-<form>
+<form method="post" action="contact.php">
     <label for="email">E-mailadres</label><br />
     <input type="email" name="email" id="email" ><br /><br />
     <label for="message">Boodschap</label><br />
