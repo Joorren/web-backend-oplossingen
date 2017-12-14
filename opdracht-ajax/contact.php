@@ -48,6 +48,12 @@ $db->query($sql);
 
 mail($admin,$title,$message,$headers);
 
-if ($copy) {
+if ($copy==='copy') {
     mail($email,$title,$message,$headers);
 }
+
+unset($_SESSION['contact']["email"]);
+unset($_SESSION['contact']["message"]);
+unset($_SESSION['contact']["copy"]);
+$error='Bericht verzonden.';
+logError($error);
