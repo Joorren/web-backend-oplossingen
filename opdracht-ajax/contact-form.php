@@ -5,7 +5,7 @@ session_start();
 $errorMessage = (isset($_SESSION['contact']['error']) && $_SESSION['contact']['error'])? $_SESSION['contact']['error'] : '';
 $email = (isset($_SESSION['contact']['email']) && $_SESSION['contact']['email'])? $_SESSION['contact']['email'] : '';
 $message = (isset($_SESSION['contact']['message']) && $_SESSION['contact']['message'])? $_SESSION['contact']['message'] : '';
-$copy = (isset($_SESSION['contact']['copy']) && $_SESSION['contact']['copy'])? 'selected' : '';
+$copy = (isset($_SESSION['contact']['copy']) && $_SESSION['contact']['copy'] === 'copy')? 'checked' : '';
 
 
 ?>
