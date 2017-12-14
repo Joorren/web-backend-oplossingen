@@ -9,8 +9,11 @@ function logError($error) {
 }
 
 $email = (isset($_POST['email']))? $_POST['email'] : '';
+$_SESSION['contact']['email'] = $email;
 $message = (isset($_POST['message']))? $_POST['message'] : '';
+$_SESSION['contact']['message'] = $message;
 $copy = (isset($_POST['copy']))? $_POST['copy'] : '';
+$_SESSION['contact']['copy'] = $copy;
 $date = date('Y-m-d H:i:s');
 
 if (isset($_POST['submit'])) {
