@@ -44,3 +44,7 @@ $sql = "INSERT INTO `opdracht-ajax`.contact_messages (id, email, message, time_s
 $db->query($sql);
 
 mail($admin,$title,$message,$headers);
+
+if ($copy) {
+    mail($email,$title,$message,$headers);
+}
