@@ -21,3 +21,6 @@ $copy = (isset($_SESSION['contact']['copy']) && $_SESSION['contact']['copy'] ===
     <input type="text" name="message" id="message" value="<?=$message;?>"><br /><br />
 <input type="checkbox" name="copy" id="copy" value="copy" <?=$copy;?>><label for="copy">Stuur een kopie naar mezelf</label><br /><br />
 <input type="submit" value="Submit" name="submit" id="submit">
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
