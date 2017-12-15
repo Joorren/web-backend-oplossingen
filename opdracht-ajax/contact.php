@@ -38,7 +38,7 @@ $headers = 'From: webmaster@example.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
 try {
-    $db = new pdo('mysql:host=localhost;dbname=opdracht-file-upload','root','');
+    $db = new pdo('mysql:host=localhost;dbname=opdracht-ajax','root','');
 }
 catch (Exception $e) {
     echo $e->getMessage();
