@@ -37,7 +37,15 @@ unset($_SESSION['contact']);
                 data: formData,
                 success: function (data) {
                     data = JSON.parse(data);
-                    console.log(data);
+                    if(data['type'] === 'Success') {
+                            $('#form').fadeOut('slow', function(){
+                            $('#form-container').append('<p id="modal">Bedankt! Uw bericht is goed verzonden!</p>').hide().fadeIn('slow');
+                        });
+                    }
+                    else if(data['type'] === 'Failed') {{
+                        $('#form-container').prepend('<p id="modal">Oeps, er ging iets mis. Probeer opnieuw!</p>');
+                        $('#form').hide().fadeIn('slow');
+                    }}
                 }
             });
             return false;
