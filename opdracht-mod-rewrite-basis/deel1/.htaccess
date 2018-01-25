@@ -1,2 +1,3 @@
 RewriteEngine On
 RewriteRule redirect.php original.php
+Rewriterule $^ original.php
